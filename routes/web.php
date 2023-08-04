@@ -46,3 +46,13 @@ Route::prefix('/colors')->namespace('\App\Http\Controllers\Color')->group(functi
     Route::delete('/{color}', 'DeleteController@delete')->name('color.delete');
 });
 
+Route::prefix('/users')->namespace('\App\Http\Controllers\User')->group(function() {
+    Route::get('/', 'IndexController@index')->name('user.index');
+    Route::get('/create', 'CreateController@create')->name('user.create');
+    Route::post('/', 'StoreController@store')->name('user.store');
+    Route::get('/{user}/edit', 'EditController@edit')->name('user.edit');
+    Route::get('/{user}', 'ShowController@show')->name('user.show');
+    Route::patch('/{user}', 'UpdateController@update')->name('user.update');
+    Route::delete('/{user}', 'DeleteController@delete')->name('user.delete');
+});
+
