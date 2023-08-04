@@ -26,3 +26,23 @@ Route::prefix('/categories')->namespace('\App\Http\Controllers\Category')->group
     Route::delete('/{category}', 'DeleteController@delete')->name('category.delete');
 });
 
+Route::prefix('/tags')->namespace('\App\Http\Controllers\Tag')->group(function() {
+    Route::get('/', 'IndexController@index')->name('tag.index');
+    Route::get('/create', 'CreateController@create')->name('tag.create');
+    Route::post('/', 'StoreController@store')->name('tag.store');
+    Route::get('/{tag}/edit', 'EditController@edit')->name('tag.edit');
+    Route::get('/{tag}', 'ShowController@show')->name('tag.show');
+    Route::patch('/{tag}', 'UpdateController@update')->name('tag.update');
+    Route::delete('/{tag}', 'DeleteController@delete')->name('tag.delete');
+});
+
+Route::prefix('/colors')->namespace('\App\Http\Controllers\Color')->group(function() {
+    Route::get('/', 'IndexController@index')->name('color.index');
+    Route::get('/create', 'CreateController@create')->name('color.create');
+    Route::post('/', 'StoreController@store')->name('color.store');
+    Route::get('/{color}/edit', 'EditController@edit')->name('color.edit');
+    Route::get('/{color}', 'ShowController@show')->name('color.show');
+    Route::patch('/{color}', 'UpdateController@update')->name('color.update');
+    Route::delete('/{color}', 'DeleteController@delete')->name('color.delete');
+});
+
